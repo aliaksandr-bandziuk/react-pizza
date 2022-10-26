@@ -1,6 +1,6 @@
 # Project React-Pizza
 
-## Available Scripts
+## Features
 
 In project I used next features:
 
