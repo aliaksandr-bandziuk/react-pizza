@@ -1,0 +1,102 @@
+[
+  {
+    "id": 0,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/u7ZQ0sFV87.jpg",
+    "title": "Pepperoni",
+    "types": [0, 1],
+    "sizes": [30, 40, 60],
+    "price": 8.00,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 1,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/e2llMCLKhy.jpg",
+    "title": "Ranch Pizza",
+    "types": [0, 1],
+    "sizes": [30, 40, 60],
+    "price": 9.30,
+    "category": 1,
+    "rating": 7
+  },
+  {
+    "id": 2,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/ngWJKYs1Aq.jpg",
+    "title": "Chicken BBQ",
+    "types": [0],
+    "sizes": [30, 40, 60],
+    "price": 8.15,
+    "category": 3,
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/wPBXtTIyJo.jpg",
+    "title": "Hawaian",
+    "types": [0, 1],
+    "sizes": [40, 60],
+    "price": 8.22,
+    "category": 1,
+    "rating": 6
+  },
+  {
+    "id": 4,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/Cm7Kcw7XTT.jpg",
+    "title": "Four Cheeses",
+    "types": [1],
+    "sizes": [30, 40, 60],
+    "price": 8.30,
+    "category": 2,
+    "rating": 8
+  },
+  {
+    "id": 5,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/WwFjgGFOy7.jpg",
+    "title": "Italiano",
+    "types": [0, 1],
+    "sizes": [30, 60],
+    "price": 8.05,
+    "category": 1,
+    "rating": 4
+  },
+  {
+    "id": 6,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/1F7id2DTCz.jpg",
+    "title": "Beaf Tasty",
+    "types": [1],
+    "sizes": [30, 40, 60],
+    "price": 9.00,
+    "category": 1,
+    "rating": 8
+  },
+  {
+    "id": 7,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/VUs6wBxVB2.jpg",
+    "title": "Hot chili",
+    "types": [0, 1],
+    "sizes": [30, 40, 60],
+    "price": 8.80,
+    "category": 4,
+    "rating": 7
+  },
+  {
+    "id": 8,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/Kyi59Laqiy.jpg",
+    "title": "Meat pizza",
+    "types": [0, 1],
+    "sizes": [30, 40, 60],
+    "price": 9.36,
+    "category": 1,
+    "rating": 9
+  },
+  {
+    "id": 9,
+    "imageUrl": "https://app.pzzby.com/uploads/photos/b95YyJFUmp.jpg",
+    "title": "Philadelphia",
+    "types": [0, 1],
+    "sizes": [30, 40, 60],
+    "price": 9.15,
+    "category": 1,
+    "rating": 8
+  }
+]
