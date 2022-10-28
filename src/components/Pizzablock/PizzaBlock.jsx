@@ -20,6 +20,7 @@ const PizzaBlock = ({ imageUrl, title, price, sizes, types }) => {
           {
             types.map((typeId, index) => 
               <li
+                key={typeId}
                 onClick={() => setActiveType(typeId)}
                 className={activeType === index ? "active" : ""}
               >
@@ -32,6 +33,7 @@ const PizzaBlock = ({ imageUrl, title, price, sizes, types }) => {
           {
             sizes.map((size, index) => 
               <li
+                key={size}
                 onClick={() => setActiveSize(index)}
                 className={activeSize === index ? "active" : ""}
               >
