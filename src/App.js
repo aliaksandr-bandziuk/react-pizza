@@ -16,8 +16,10 @@ function App() {
   useEffect(() => {
     fetch('https://635bdcab8aa87edd91532385.mockapi.io/items')
     .then(res => res.json())
-    .then(arr => setItems(arr))
-    setIsLoading(false)
+    .then(arr => {
+      setItems(arr)
+      setIsLoading(false)
+    })
   }, []);
 
 
