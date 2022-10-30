@@ -28,4 +28,13 @@
       }
     }
   }
+
+  @media (max-width: 1260px) {
+    width: 100%;
+    overflow: auto;
+
+    ul {
+      // width: 785px;
+    }
+  }
 }
