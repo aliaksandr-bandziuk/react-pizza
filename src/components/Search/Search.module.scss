@@ -9,11 +9,11 @@
   width: clamp(9.375rem, 5.966rem + 17.05vw, 18.75rem);
   border-radius: 10px;
   font-size: 16px;
-  transition: all ease-in-out .15s;
+  // transition: all ease-in-out .15s;
 
   &:focus {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    width: clamp(3.125rem, -3.693rem + 34.09vw, 21.875rem);
+    // width: clamp(3.125rem, -3.693rem + 34.09vw, 21.875rem);
   }
 }
 
@@ -24,4 +24,18 @@
   position: absolute;
   top: 12px;
   left: 12px;
+}
+
+.clearIcon {
+  width: 10px;
+  height: 10px;
+  opacity: 0.3;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+
+  &:hover {
+    opacity: .7;
+    cursor: pointer;
+  }
 }
