@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../App';
 
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setCategoryId } from '../redux/slices/filterSlice';
+
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from "../components/Pizzablock/PizzaBlock";
@@ -9,21 +13,32 @@ import Pagination from '../components/Pagination/Pagination';
 
 const Home = () => {
   
+  const dispatch = useDispatch();
+
+  const categoryId = useSelector((state) => state.filter.categoryId);
+  const sortType = useSelector((state) => state.filter.sort.sortProperty);
+
+  console.log('id category', categoryId);
+  
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortType, setSortType] = useState({
-    name: 'popular  🠗',
-    sortProperty: 'rating'
-  });
+  // const [sortType, setSortType] = useState({
+  //   name: 'popular  🠗',
+  //   sortProperty: 'rating'
+  // });
+
+  const onCangeCategory = (id) => {
+    console.log(id);
+    dispatch(setCategoryId(id));
+  }
 
   useEffect(() => {
     setIsLoading(true);
 
-    const sortBy = sortType.sortProperty.replace('-', '');
-    const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
+    const sortBy = sortType.replace('-', '');
+    const order = sortType.includes('-') ? 'asc' : 'desc';
     const search = searchValue ? `&search=${searchValue}` : '';
 
     fetch(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${
@@ -45,12 +60,9 @@ const Home = () => {
       <div className="content__top">
         <Categories 
           value={categoryId} 
-          onCangeCategory={(index) => setCategoryId(index)} 
+          onCangeCategory={onCangeCategory} 
         />
-        <Sort 
-          value={sortType}
-          onChangeSort={(index) => setSortType(index)}
-        />
+        <Sort />
       </div>
       <h2 className="content__title">Our Pizza</h2>
       <div className="content__items">
