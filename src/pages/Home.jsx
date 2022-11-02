@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../App';
+import axios from 'axios';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -17,17 +18,11 @@ const Home = () => {
 
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
-
-  console.log('id category', categoryId);
   
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  // const [sortType, setSortType] = useState({
-  //   name: 'popular  🠗',
-  //   sortProperty: 'rating'
-  // });
 
   const onCangeCategory = (id) => {
     console.log(id);
@@ -41,14 +36,26 @@ const Home = () => {
     const order = sortType.includes('-') ? 'asc' : 'desc';
     const search = searchValue ? `&search=${searchValue}` : '';
 
-    fetch(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${
+    // вариант получения через fetch
+    // fetch(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${
+    //   categoryId > 0 ? `category=${categoryId}` : ''
+    // }&sortBy=${sortBy}&order=${order}${search}`)
+    // .then(res => res.json())
+    // .then(arr => {
+    //   setItems(arr)
+    //   setIsLoading(false)
+    // });
+
+    // вариант получения через axios
+    axios
+      .get(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${
       categoryId > 0 ? `category=${categoryId}` : ''
     }&sortBy=${sortBy}&order=${order}${search}`)
-    .then(res => res.json())
-    .then(arr => {
-      setItems(arr)
-      setIsLoading(false)
-    });
+      .then(res => {
+        setItems(res.data)
+        setIsLoading(false)
+      })
+
     window.scrollTo(0, 0);
   }, [categoryId, sortType, searchValue, currentPage]);
 
