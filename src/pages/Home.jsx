@@ -40,7 +40,7 @@ const Home = () => {
     dispatch(setCurrentPage(number));
   }
 
-  const fetchPizzas = () => {
+  const fetchPizzas = async () => {
     setIsLoading(true);
 
     const sortBy = sortType.replace('-', '');
@@ -59,16 +59,28 @@ const Home = () => {
     // });
 
     // вариант получения через axios
-    axios
-      .get(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${
-      categoryId > 0 ? `category=${categoryId}` : ''
-    }&sortBy=${sortBy}&order=${order}${search}`)
-      .then(res => {
-        setItems(res.data)
-        setIsLoading(false)
-      })
+    // axios
+    //   .get(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${
+    //   categoryId > 0 ? `category=${categoryId}` : ''
+    //   }&sortBy=${sortBy}&order=${order}${search}`)
+    //   .then(res => {
+    //     setItems(res.data)
+    //     setIsLoading(false)
+    //   })
+
+    // вариант получения через async/await
+
 
     // window.scrollTo(0, 0);
+
+    try {
+      const res = await axios.get(`https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${categoryId > 0 ? `category=${categoryId}`: ''}&sortBy=${sortBy}&order=${order}${search}`);
+      setItems(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      console.log('error', error);
+    }
   }
 
   // если изменили параметры и был первый рендер, то проверяем
