@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { SearchContext } from '../App';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
@@ -132,6 +133,11 @@ const Home = () => {
   }, [categoryId, sortType, searchValue, currentPage]);
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+  // разобраться здесь с роутингом по картинке
+  // const pizzas = items.map((obj) => 
+  //   <Link key={obj.id} to={`/pizza/${obj.id}`}>
+  //     <PizzaBlock {...obj} />
+  //   </Link>);
   const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
 
   return (
