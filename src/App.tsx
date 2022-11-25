@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 
 import './scss/app.scss';
 
-export const SearchContext = createContext('');
+export const SearchContext = createContext<any>('');
 
 function App() {
 

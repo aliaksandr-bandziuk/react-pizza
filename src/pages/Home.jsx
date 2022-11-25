@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SearchContext } from '../App';
+import { SearchContext } from '../App.tsx';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 
