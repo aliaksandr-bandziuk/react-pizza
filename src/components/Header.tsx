@@ -7,15 +7,15 @@ import Search from './Search/Search';
 
 const Header = () => {
 
-  const { items, totalPrice } = useSelector(state => state.basket);
+  const { items, totalPrice } = useSelector<any, any>(state => state.basket);
   const location = useLocation();
 
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
 
   return (
     <div className="header">
       <div className="container">
-        <Link to="/">
+        <Link to="/react-pizza">
           <div className="header__logo">
             <img width="38" src={logo} alt="Pizza logo" />
             <div>

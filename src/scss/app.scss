@@ -167,8 +167,10 @@ body {
       width: 10%;
 
       img {
-        width: 80px;
-        height: 80px;
+        // width: 80px;
+        // height: 80px;
+        max-width: 100%;
+        width: 100%;
       }
     }
 
