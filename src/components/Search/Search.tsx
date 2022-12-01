@@ -1,21 +1,24 @@
 import React, { useContext, useRef, useCallback, useState } from 'react';
 import debounce from 'lodash.debounce';
-import { SearchContext } from '../../App.tsx';
+// import { SearchContext } from '../../App.tsx';
+import SearchContext from '../../App.tsx';
 
 import styles from './Search.module.scss';
 
-const Search = () => {
+const Search: React.FC = () => {
 
   // отвечает за быстрое отображение данных при debounce
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
   // отвечает за поиск при debounce
-  const { setSearchValue } = useContext(SearchContext);
-  const inputRef = useRef();
+  const setSearchValue = useContext<any>(SearchContext);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onClickClear = () => {
     setSearchValue('');
     setValue('');
-    inputRef.current.focus();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
   }
 
   const updateSearchValue = useCallback(
@@ -25,7 +28,7 @@ const Search = () => {
     [],
   );
 
-  const onChangeInput = event => {
+  const onChangeInput = (event: any) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   }

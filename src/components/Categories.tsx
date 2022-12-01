@@ -1,6 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Categories = ({ value, onCangeCategory }) => {
+type CategoriesProps = {
+  value: number;
+  onCangeCategory: (index: number) => void;
+}
+
+const Categories: React.FC<CategoriesProps> = ({ value, onCangeCategory }) => {
 
   const categories = [
     'All',

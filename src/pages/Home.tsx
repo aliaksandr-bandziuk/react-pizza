@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SearchContext } from '../App.tsx';
+import SearchContext from '../App.tsx';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,29 +18,29 @@ import PizzaBlock from "../components/Pizzablock/PizzaBlock";
 import { Skeleton } from "../components/Pizzablock/Skeleton";
 import Pagination from '../components/Pagination/Pagination';
 
-const Home = () => {
+const Home: React.FC = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const { items, status } = useSelector((state) => state.pizza);
+  const { items, status } = useSelector((state: any) => state.pizza);
 
-  const categoryId = useSelector((state) => state.filter.categoryId);
-  const sortType = useSelector((state) => state.filter.sort.sortProperty);
-  const currentPage = useSelector((state) => state.filter.currentPage);
+  const categoryId = useSelector((state: any) => state.filter.categoryId);
+  const sortType = useSelector((state: any) => state.filter.sort.sortProperty);
+  const currentPage = useSelector((state: any) => state.filter.currentPage);
   
-  const { searchValue } = useContext(SearchContext);
+  const searchValue = useContext(SearchContext);
   // const [items, setItems] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
   // const [currentPage, setCurrentPage] = useState(1);
 
-  const onCangeCategory = (id) => {
+  const onCangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   }
 
-  const onChangePage = (number) => {
+  const onChangePage = (number: number) => {
     dispatch(setCurrentPage(number));
   }
 
@@ -77,6 +77,7 @@ const Home = () => {
     // window.scrollTo(0, 0);
 
       dispatch(
+        // @ts-ignore
         fetchPizzas({
           sortBy,
           order,
@@ -109,7 +110,7 @@ const Home = () => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
 
-      const sort = sortList.find((obj) => obj.sortType === params.sortType);
+      const sort = sortList.find((obj: any) => obj.sortType === params.sortType);
 
       dispatch(
         setFilters({
@@ -138,7 +139,7 @@ const Home = () => {
   //   <Link key={obj.id} to={`/pizza/${obj.id}`}>
   //     <PizzaBlock {...obj} />
   //   </Link>);
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const pizzas = items.map((obj: any) => <PizzaBlock key={obj.id} {...obj} />);
 
   return (
     <div className="container">
