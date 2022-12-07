@@ -18,6 +18,7 @@ const Header: React.FC = () => {
     if (isMounted.current) {
       const json = JSON.stringify(items);
       localStorage.setItem('cart', json);
+      console.log(localStorage);
     }
     isMounted.current = true;
   }, [items]);
