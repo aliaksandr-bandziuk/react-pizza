@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { useDispatch } from 'react-redux';
 
-import { addItem, minusItem, removeItem } from '../redux/slices/basketSlice.js';
+import { addItem, minusItem, removeItem } from '../redux/slices/basketSlice';
 
 type CartItemProps = { 
   id: string, 

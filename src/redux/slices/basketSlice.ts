@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCartFromLS } from "../../utils/getCartFromLS";
+
+const cartData = getCartFromLS();
 
 const initialState = {
-  totalPrice: 0,
-  items: []
+  // totalPrice: 0,
+  // items: []
+  totalPrice: cartData.totalPrice,
+  items: cartData.items,
 }
 
 const basketSlice = createSlice({
@@ -16,7 +21,7 @@ const basketSlice = createSlice({
     //   }, 0);
     // },
     addItem(state, action) {
-      const findItem = state.items.find((obj) => obj.id === action.payload.id);
+      const findItem = state.items.find((obj: any) => obj.id === action.payload.id);
 
       if (findItem) {
         findItem.count++;
@@ -26,18 +31,18 @@ const basketSlice = createSlice({
           count: 1,
         })
       }
-      state.totalPrice = state.items.reduce((sum, obj) => {
+      state.totalPrice = state.items.reduce((sum: any, obj: any) => {
         return Math.ceil(((obj.price * obj.count) + sum) * 100) / 100;
       }, 0);
     },
     minusItem(state, action) {
-      const findItem = state.items.find((obj) => obj.id === action.payload);
+      const findItem = state.items.find((obj: any) => obj.id === action.payload);
       if (findItem) {
         findItem.count--;
       }
     },
     removeItem(state, action) {
-      state.items = state.items.filter(obj => obj.id !== action.payload);
+      state.items = state.items.filter((obj: any) => obj.id !== action.payload);
     },
     clearItems(state) {
       state.items = [];
