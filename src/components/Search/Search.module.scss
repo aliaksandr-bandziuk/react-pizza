@@ -4,38 +4,42 @@
 
 .input {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 12px 20px;
-  padding-left: 35px;
-  width: clamp(9.375rem, 5.966rem + 17.05vw, 18.75rem);
   border-radius: 10px;
+  padding: 10px 14px 10px 42px;
+  width: 350px;
+  height: 48px;
   font-size: 16px;
-  // transition: all ease-in-out .15s;
 
   &:focus {
     border: 1px solid rgba(0, 0, 0, 0.2);
-    // width: clamp(3.125rem, -3.693rem + 34.09vw, 21.875rem);
   }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+
 }
 
 .icon {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  opacity: 0.3;
+  left: 14px;
+  top: 13px;
+}
+
+.clearIcon {
   width: 22px;
   height: 22px;
   opacity: 0.3;
   position: absolute;
-  top: 12px;
-  left: 12px;
-}
-
-.clearIcon {
-  width: 10px;
-  height: 10px;
-  opacity: 0.3;
-  position: absolute;
-  right: 15px;
-  top: 18px;
+  right: 10px;
+  top: 13px;
+  cursor: pointer;
+  transition: opacity .3s ease;
 
   &:hover {
-    opacity: .7;
-    cursor: pointer;
+    opacity: 0.6;
   }
 }

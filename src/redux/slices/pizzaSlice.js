@@ -1,32 +1,29 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const fetchPizzas = createAsyncThunk(
-  'pizza/fetchPizzasStatus',
-  async(params) => {
-    const {
-      sortBy,
-      order,
-      category,
-      search,
-      currentPage,
-      categoryId
-    } = params;
+  "pizza/fetchPizzasStatus",
+  async (params, ThunkAPI) => {
+    const { category, sortBy, order, search, currentPage } = params;
     const { data } = await axios.get(
-      `https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=6&${categoryId > 0 ? `category=${categoryId}`: ''}&sortBy=${sortBy}&order=${order}${search}`
+      `https://635bdcab8aa87edd91532385.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
     );
-    return data;
-  }
-)
 
-const initialState = {
-  items: [],
-  status: 'loading', // loading | success | error
-}
+    if (data.length === 0) {
+      return ThunkAPI.rejectWithValue("Please add some pizza");
+
+    }
+
+    return ThunkAPI.fulfillWithValue(data);
+  }
+);
 
 const pizzaSlice = createSlice({
-  name: 'pizza',
-  initialState,
+  name: "pizza",
+  initialState: {
+    items: [],
+    status: "loading", // loading | success | error
+  },
   reducers: {
     setItems(state, action) {
       state.items = action.payload;
@@ -34,18 +31,18 @@ const pizzaSlice = createSlice({
   },
   extraReducers: {
     [fetchPizzas.pending]: (state) => {
-      state.status = 'loading';
       state.items = [];
+      state.status = "loading";
     },
     [fetchPizzas.fulfilled]: (state, action) => {
       state.items = action.payload;
-      state.status = 'success';
+      state.status = "success";
     },
-    [fetchPizzas.rejected]: (state, action) => {
-      state.status = 'error';
+    [fetchPizzas.rejected]: (state) => {
       state.items = [];
-    }
-  }
+      state.status = "error";
+    },
+  },
 });
 
 export const { setItems } = pizzaSlice.actions;

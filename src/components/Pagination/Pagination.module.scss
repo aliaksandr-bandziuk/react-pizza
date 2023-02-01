@@ -1,24 +1,32 @@
 .root {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
   li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-flex;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &:global {
+      &.selected {
+        a {
+          background-color: #fe5f1e;
+          color: #fff;
+        }
+      }
+    }
 
     a {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
       width: 40px;
       height: 40px;
+      padding: 10px;
+      border-radius: 30px;
       border: 1px solid #fe5f1e;
-      border-radius: 50%;
-      color: #fe5f1e;
       cursor: pointer;
-      transition: all ease-in-out .2s;
+      color: #fe5f1e;
+      transition: color .3s ease, background-color .3s ease;
 
       &:hover {
         background-color: #fe5f1e;
@@ -27,20 +35,9 @@
     }
   }
 
-  :global {
-    .selected {
-      background-color: #fe5f1e;
-      border-radius: 50%;
-
-      a {
-        color: #fff;
-      }
-    }
-  }
-
-  :global {
-    .previous {
-      
-    }
-  }
+  //:global {
+  //  .previous {
+  //
+  //  }
+  //}
 }

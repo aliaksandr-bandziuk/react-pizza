@@ -1,4 +1,4 @@
-@import '../variables';
+@import '../variables.scss';
 
 .categories {
   ul {
@@ -26,15 +26,6 @@
         background-color: #282828;
         color: #fff;
       }
-    }
-  }
-
-  @media (max-width: 1260px) {
-    width: 100%;
-    overflow: auto;
-
-    ul {
-      // width: 785px;
     }
   }
 }

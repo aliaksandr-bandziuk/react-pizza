@@ -1,32 +1,25 @@
 {
   "name": "react-pizza",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "https://aliaksandr-bandziuk.github.io/react-pizza/",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@reduxjs/toolkit": "^1.8.2",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.2.3",
-    "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "axios": "^1.1.3",
-    "clsx": "^1.2.1",
-    "gh-pages": "^4.0.0",
+    "axios": "^0.27.2",
+    "gh-pages": "^5.0.0",
     "lodash.debounce": "^4.0.8",
-    "qs": "^6.11.0",
-    "react": "^18.2.0",
+    "qs": "^6.10.5",
+    "react": "^18.1.0",
     "react-content-loader": "^6.2.0",
-    "react-dom": "^18.2.0",
-    "react-loading-skeleton": "^3.1.0",
+    "react-dom": "^18.1.0",
     "react-paginate": "^8.1.3",
-    "react-redux": "^8.0.4",
-    "react-router-dom": "^6.4.2",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.55.0",
-    "typescript": "^4.9.3",
+    "sass": "^1.52.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -53,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/lodash.debounce": "^4.0.7"
   }
 }
